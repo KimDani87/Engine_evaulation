@@ -14,4 +14,25 @@
 
 | Engine ID | Engine Name | 대상 제품 | 최신 평가 버전 | 최신 최종 의견 | 비고 |
 | --- | --- | --- | --- | --- | --- |
-|  |  |  |  | Pass / Conditional Pass / Hold / Reject |  |
+| `research-ana-23` | ACR research/ana-23 | TBD | `37915` | Conditional Pass | Oracle K8s smoke 성공. `literal_json` input manifest와 `engine_resources_json` result artifact 계약 필요 |
+| `research-cls-06` | ACR research/cls-06 | TBD | `37914` | Hold | `--help` probe 성공. 실제 input/output schema와 Oracle result normalization 계약 추가 필요 |
+| `research-seg-05` | ACR research/seg-05 | TBD | `37744` | Hold | default entrypoint probe에서 `libGL.so.1` 누락 확인. image dependency 보정 전 실행 보류 |
+| `research-seg-11` | ACR research/seg-11 | TBD | `38014` | Hold | default entrypoint probe에서 `torchio` 누락 확인. image dependency 보정 전 실행 보류 |
+
+## Oracle K8s 실행 계약 요약
+
+ACR 연구용 Docker는 `neurophet.azurecr.io/research/<repo>:<tag>` 형식으로 실행한다.
+Oracle profile에는 Docker repository/tag와 함께 backend별 실행 계약을 정확히 저장해야 한다.
+
+K8s research image profile의 최소 계약:
+
+- `execution.backend: k8s_research_image`
+- `execution.inference_runtime.image_repository`
+- `execution.inference_runtime.image_tag`
+- `execution.inference_runtime.entrypoint_mode`
+- `execution.inference_runtime.command` 또는 `args`
+- `<oracle_input_manifest>`를 쓰면 `input_manifest.format`
+- `<oracle_output_dir>`를 쓰면 `output_artifact.format`과 `filename` 또는 `filenames`
+
+현재 Oracle은 input/output format을 추정하지 않는다.
+허용 format은 `literal_json`, `oracle.research.input_manifest.v1`, `engine_resources_json`, `oracle_result_json`뿐이다.
