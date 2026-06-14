@@ -22,7 +22,7 @@
 | Input format | TBD |
 | Output format | TBD |
 | Output artifact | TBD |
-| Oracle profile | TBD |
+| Oracle profile | `profiles/research-seg-11-hold.yaml` (실행 불가 사유 기록용, executable 아님) |
 
 ## 최신 평가 상태
 
@@ -39,6 +39,7 @@
 
 - default entrypoint probe 단계에서 `torchio` Python dependency 누락으로 실패.
 - 현재 상태에서는 Oracle이 args/input/output 계약을 자동 정리할 수 없음.
+- ACR tag/profile match API와 온보딩 UI에는 hold profile의 `probe_failure`만 표시하고, 실행 프로파일은 자동 적용하지 않음.
 
 ## 남은 일
 

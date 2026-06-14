@@ -16,8 +16,8 @@
 | --- | --- | --- | --- | --- | --- |
 | `research-ana-23` | ACR research/ana-23 | TBD | `37915` | Conditional Pass | Oracle K8s smoke 성공. `literal_json` input manifest와 `engine_resources_json` result artifact 계약 필요 |
 | `research-cls-06` | ACR research/cls-06 | TBD | `37914` | Hold | `--help` probe 성공. 실제 input/output schema와 Oracle result normalization 계약 추가 필요 |
-| `research-seg-05` | ACR research/seg-05 | TBD | `37744` | Hold | default entrypoint probe에서 `libGL.so.1` 누락 확인. image dependency 보정 전 실행 보류 |
-| `research-seg-11` | ACR research/seg-11 | TBD | `38014` | Hold | default entrypoint probe에서 `torchio` 누락 확인. image dependency 보정 전 실행 보류 |
+| `research-seg-05` | ACR research/seg-05 | TBD | `37744` | Hold | default entrypoint probe에서 `libGL.so.1` 누락 확인. `profiles/research-seg-05-hold.yaml`로 실행 보류 사유만 노출 |
+| `research-seg-11` | ACR research/seg-11 | TBD | `38014` | Hold | default entrypoint probe에서 `torchio` 누락 확인. `profiles/research-seg-11-hold.yaml`로 실행 보류 사유만 노출 |
 
 ## Oracle K8s 실행 계약 요약
 
